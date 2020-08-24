@@ -7,23 +7,30 @@ for (let i = 0; i < menuLink.length; i++) {
     const subMenu = menuLink[i]
       .closest(".menu__item")
       .querySelector(".menu_sub");
-
-    if (subMenu) {
-      subMenu.classList.add("menu_active");
-    }
     const result = menuSub.find((elems) =>
       elems.classList.contains("menu_active")
     );
-
-    if (result) {
-      result.classList.remove("menu_active");
-
-      if (menuLink[i].nextElementSibling === result) {
-        result.classList.add("menu_active");
-
-        console.log(result);
-        return false;
+    if (subMenu) {
+      if (result === undefined) {
+        subMenu.classList.add("menu_active");
+      } else {
+        if (result !== subMenu) {
+          subMenu.classList.add("menu_active");
+        }
+        result.classList.remove("menu_active");
       }
+      return false;
     }
   };
 }
+
+// if (subMenu) {
+//   if (result === undefined) {
+//     subMenu.classList.add("menu_active");
+//     console.log(123);
+//   } else if (result === subMenu) {
+//     result.classList.remove("menu_active");
+//   } else if (result !== subMenu) {
+//     result.classList.remove("menu_active");
+//     subMenu.classList.add("menu_active");
+//   }
