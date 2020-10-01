@@ -26,8 +26,7 @@ class Game {
       this.timer.textContent -= 1;
       if (this.timer.textContent == 0) {
         alert("Вы не успели! Попробуйте снова!");
-        this.setNewWord();
-        this.reset();
+        this.fail();
       }
     };
     this.set = setInterval(workTimer, 1000);
@@ -41,7 +40,6 @@ class Game {
         this.success();
       } else {
         this.fail();
-        this.timer.textContent = this.currentSymbols.length;
       }
     });
   }
@@ -59,6 +57,7 @@ class Game {
     }
 
     this.setNewWord();
+    this.timer.textContent = this.currentSymbols.length;
   }
 
   fail() {
@@ -68,6 +67,7 @@ class Game {
     }
 
     this.setNewWord();
+    this.timer.textContent = this.currentSymbols.length;
   }
 
   setNewWord() {
