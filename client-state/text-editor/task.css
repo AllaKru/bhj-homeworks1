@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  align-items: center;
+}
+.task__remove {
+  font-family: Arial;
+  background: green;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
